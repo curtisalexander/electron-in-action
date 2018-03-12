@@ -7,6 +7,8 @@ app.on('ready', () => {
 
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
+  mainWindow.webContents.openDevTools();
+
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
   });
