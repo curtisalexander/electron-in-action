@@ -35,4 +35,4 @@ for i in range(10):
 ```
 
 Finally, insert an image.
-!['Logo from calex.org']('mdfiles/img/calex-logo.jpg')
+<!--img src="img/calex-logo.jpg" alt="Logo from calex.org" width="200" height="200"-->
