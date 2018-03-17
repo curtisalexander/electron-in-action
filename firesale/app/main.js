@@ -12,7 +12,7 @@ app.on('ready', () => {
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
-    getFileFromUser();
+    // getFileFromUser();
   });
 
   mainWindow.on('closed', () => {
@@ -20,7 +20,7 @@ app.on('ready', () => {
   });
 });
 
-const getFileFromUser = () => {
+const getFileFromUser = exports.getFileFromUser = () => {
   const files = dialog.showOpenDialog(mainWindow, {
     properties: ['openFile'],
     filters: [
@@ -29,11 +29,10 @@ const getFileFromUser = () => {
     ]
   });
 
-  if (!files) { return; }
+  if (files) { openFile(files[0]) };
+};
 
-  const file = files[0];
+const openFile = (file) => {
   const content = fs.readFileSync(file).toString();
-
-  console.log(content);
-}
-
+  mainWindow.webContents.send('file-opened', file, content);
+};
