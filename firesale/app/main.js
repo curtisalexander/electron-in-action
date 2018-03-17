@@ -21,8 +21,12 @@ app.on('ready', () => {
 });
 
 const getFileFromUser = () => {
-  const files = dialog.showOpenDialog({
-    properties: ['openFile']
+  const files = dialog.showOpenDialog(mainWindow, {
+    properties: ['openFile'],
+    filters: [
+      { name: 'Text Files', extensions: ['txt'] },
+      { name: 'Markdown Files', extensions: ['md', 'markdown'] }
+    ]
   });
 
   if (!files) { return; }
@@ -32,3 +36,4 @@ const getFileFromUser = () => {
 
   console.log(content);
 }
+
