@@ -35,4 +35,4 @@ for i in range(10):
 ```
 
 Finally, insert an image.
-!['Logo from calex.org']['img/calex-logo.img']
+!['Logo from calex.org']('mdfiles/img/calex-logo.jpg')
